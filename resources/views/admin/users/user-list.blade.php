@@ -31,7 +31,7 @@
                     @endif
                     <td>{{$item['status'] ? 'Kích hoạt' : 'Không kích hoạt'}}</td>
 
-                    <td> <Button class=""  >  </Button> </td>
+                    <td> <a class="btn btn-success"  href="update/{{$item['name']}}"> Update </a>  </td>
                 </tr>
             @endforeach
         </tbody>

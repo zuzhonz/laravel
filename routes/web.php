@@ -110,7 +110,7 @@ Route::group(['prefix' => 'admin', 'as' => 'admin.'], function () {
             'old_name' => $name,
             'list' => $users,
         ]);
-    });
+    })->name('update');
 
 
 
