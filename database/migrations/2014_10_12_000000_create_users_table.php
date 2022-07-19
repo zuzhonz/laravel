@@ -20,15 +20,14 @@ class CreateUsersTable extends Migration
             $table->string('password');
 
 
-            $table->unsignedInteger('role');
+            $table->unsignedBigInteger('role');
+            $table->foreign('role')->references('id')->on('roles');
             $table->string('code');
             $table->string('avatar');
             $table->string('username');
             $table->unsignedInteger('status');
 
 
-            $table->rememberToken();
-            $table->timestamp('email_verified_at')->nullable();
             $table->timestamps();
         });
     }

@@ -407,13 +407,13 @@
             
             <ul class="nav nav-treeview">
               <li class="nav-item">
-                <a href="/admin/users" class="nav-link">
+                <a href="{{ route('admin.users.index') }}" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
                   <p>User</p>
                 </a>
               </li>
               <li class="nav-item">
-                <a href="/admin/add" class="nav-link">
+                <a href="{{ route('admin.users.create') }}" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
                   <p>Add</p>
                 </a>
