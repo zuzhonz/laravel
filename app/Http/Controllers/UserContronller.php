@@ -37,9 +37,13 @@ class UserContronller extends Controller
     {
         $roles = Roles::all();
         $code = 'PH' . mt_rand(10000, 99999);
+
+
+
         return view('admin.users.add-user', [
             'code' => $code,
             'roles' => $roles,
+
         ]);
     }
 
@@ -60,7 +64,6 @@ class UserContronller extends Controller
 
         if ($request->hasFile('avatar')) {
             $avt = $request->file('avatar');
-
             $avtName = $avt->getClientOriginalName();
             $avtName = $request->username . '_' . $avtName;
             $users->avatar = $avt->storeAs('image/users', $avtName);
@@ -92,12 +95,14 @@ class UserContronller extends Controller
 
         // dd($users);
         $roles = Roles::all();
+
+        $routeLink = route('admin.users.update', ['user' => $id]);
+
         $code = 'PH' . mt_rand(10000, 99999);
         return view('admin.users.add-user', [
             'roles' => $roles,
             'user' => $users,
             'code' => $code,
-
         ]);
     }
 
@@ -110,6 +115,22 @@ class UserContronller extends Controller
      */
     public function update(Request $request, $id)
     {
+        $input = $request->all();
+        $users = User::find($id);
+        $users->fill($input);
+
+
+        if ($request->hasFile('avatar')) {
+            $avt = $request->file('avatar');
+            $avtName = $avt->getClientOriginalName();
+            $avtName = $request->username . '_' . $avtName;
+            $users->avatar = $avt->storeAs('image/users', $avtName);
+        }
+
+
+        $users->save();
+        return redirect()->route('admin.users.index')
+            ->with('success', 'Product updated successfully');
     }
 
     /**

@@ -3,7 +3,7 @@
 @section('title', 'Đăng ký thông tin')
 
 @section('content')
-    <form action="{{route('admin.users.store')}}" method="POST" enctype="multipart/form-data" >
+    <form action="{{isset($user->id) ? route('admin.users.update', ['user' => $user->id]) : route('admin.users.store') }}" method="POST" enctype="multipart/form-data" >
         @csrf
         @if (isset($user->id))
             @method('PUT')
@@ -37,7 +37,9 @@
         <div class="form-group">
             <label for="formFile" class="form-label">Avatar</label>
             <input class="form-control" type="file" name="avatar" id="formFile">
-        </div>
+        </div> 
+
+
 
 
       <div class="form-group"> 
