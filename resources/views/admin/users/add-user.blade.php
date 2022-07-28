@@ -37,7 +37,13 @@
         <div class="form-group">
             <label for="formFile" class="form-label">Avatar</label>
             <input class="form-control" type="file" name="avatar" id="formFile">
+             
+          @if (isset($user->id))
+            <img src="{{asset($user->avatar)}}" alt="..." width="150" class="img-thumbnail">  
+           @endif
         </div> 
+        
+        
 
 
 

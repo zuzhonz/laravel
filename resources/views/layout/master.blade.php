@@ -11,6 +11,9 @@
   <link rel="stylesheet" href="{{asset('plugins/overlayScrollbars/css/OverlayScrollbars.min.css')}}">
   <!-- Theme style -->
   <link rel="stylesheet" href="{{asset('dist/css/adminlte.min.css')}}">
+
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.2/css/all.min.css">
 </head>
 <!--
 `body` tag options:
@@ -407,13 +410,13 @@
             
             <ul class="nav nav-treeview">
               <li class="nav-item">
-                <a href="{{ route('admin.users.index') }}" class="nav-link">
-                  <i class="far fa-circle nav-icon"></i>
-                  <p>User</p>
+                <a href="{{route('admin.products.index')}}" class="nav-link">
+                  <i class="fa-brands fa-atlassian nav-icon"></i>
+                  <p>Products</p>
                 </a>
               </li>
               <li class="nav-item">
-                <a href="{{ route('admin.users.create') }}" class="nav-link">
+                <a href="" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
                   <p>Add</p>
                 </a>
@@ -480,7 +483,10 @@
       <div class="container-fluid">
         <div class="row mb-2">
           <div class="col-sm-6">
-            <h1 class="m-0">Dashboard v3</h1>
+
+            <h1 class="m-0">@yield('title')</h1>
+
+
           </div><!-- /.col -->
           <div class="col-sm-6">
             <ol class="breadcrumb float-sm-right">
@@ -496,12 +502,7 @@
     <!-- Main content -->
     <div class="content">
         <div class="container-fluid">
-       
-
           @yield('content')
-
-
-
           <!-- /.row -->
         </div>
         <!-- /.container-fluid -->
@@ -530,7 +531,7 @@
 <!-- REQUIRED SCRIPTS -->
 
 <!-- jQuery -->
-<script src="{{asset('plugins/jquery/jquery.min.js')}}"></script>
+<script src="{{asset('plugins/jquery/jquery.min.js')}}"></>
 <!-- Bootstrap -->
 <script src="{{asset('plugins/bootstrap/js/bootstrap.bundle.min.js')}}"></script>
 <!-- AdminLTE -->
